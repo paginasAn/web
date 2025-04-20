@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Galería de Recuerdos</title>
+  <link rel="stylesheet" href="./css/estilos3.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+</head>
+  <!-- Música de fondo automática -->
+<audio id="audio" autoplay loop>
+    <source src="./assets/musica/cancion.mp3" type="audio/mpeg">
+    Tu navegador no soporta el elemento de audio.
+  </audio>
+  
+  <script>
+    // Intentamos reproducir automáticamente al cargar
+    window.addEventListener("DOMContentLoaded", () => {
+      const audio = document.getElementById("audio");
+      audio.volume = 0.5; // volumen suave
+      const playPromise = audio.play();
+  
+      if (playPromise !== undefined) {
+        playPromise.catch(error => {
+          // Si el navegador bloquea, intentamos reproducir al primer clic
+          window.addEventListener('click', () => {
+            audio.play();
+          }, { once: true });
+        });
+      }
+    });
+  </script>
+  
+
+<body class="galeria-body">
+
+  <!-- Botones de navegación -->
+  <nav class="nav">
+    <a href="index.html">Inicio</a>
+    <a href="carta.html">Carta</a>
+    <a href="galeria.html" class="activo">Galería</a>
+  </nav>
+
+  <!-- Título de la página -->
+  <h1 class="titulo-galeria">Nuestros Recuerdos</h1>
+
+  <!-- Contenedor de la galería -->
+  <div class="galeria">
+    <!-- Imagen 1 -->
+    <div class="foto">
+      <img src="./assets/imagenes/foto1.jpeg" alt="Recuerdo 1">
+      <p>Solo bastó un día para que nuestras almas se reconocieran… y desde entonces, no quiero que te vayas de mi lado.❤️</p>
+    </div>
+    <!-- Imagen 2 -->
+    <div class="foto">
+      <img src="./assets/imagenes/foto2.jpeg" alt="Recuerdo 2">
+      <p>En tus brazos encontré mi lugar favorito, y en tu sonrisa, mi razón para seguir soñando.❤️</p>
+    </div>
+    <!-- Imagen 3 -->
+    <div class="foto">
+      <img src="./assets/imagenes/foto3.jpeg" alt="Recuerdo 3">
+      <p>Un beso en la frente, un te amo silencioso, y la promesa de que siempre estaré para ti. ❤️</p>
+    </div>
+    <div class="foto">
+    <img src="./assets/imagenes/foto4.jpeg" alt="Recuerdo 4">
+    <p>Tu abrazo es ese rincón del mundo donde todo está bien, donde el tiempo se detiene y el alma descansa. ❤️</p>
+  </div>
+  <div class="foto">
+    <img src="./assets/imagenes/foto5.jpeg" alt="Recuerdo 4">
+    <p>No importa dónde estemos, si estoy contigo, ya estoy en casa. ❤️</p>
+  </div>
+
+  <!-- Corazones flotando -->
+  <div class="fondo-corazones" id="fondo-corazones"></div>
+
+  <!-- Script corazones -->
+  <script>
+    const fondo = document.getElementById("fondo-corazones");
+
+    for (let i = 0; i < 25; i++) {
+      const corazon = document.createElement("div");
+      corazon.classList.add("corazon");
+      corazon.style.left = `${Math.random() * 100}%`;
+      corazon.style.animationDuration = `${6 + Math.random() * 4}s`;
+      corazon.style.opacity = Math.random();
+      corazon.style.width = corazon.style.height = `${10 + Math.random() * 20}px`;
+      fondo.appendChild(corazon);
+    }
+  </script>
+
+</body>
+</html>

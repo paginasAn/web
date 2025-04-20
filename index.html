@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mi Amor 💖</title>
+  <!-- Fuentes románticas -->
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/estilos.css" />
+</head>
+<!-- Música de fondo automática -->
+<audio id="audio" autoplay loop>
+    <source src="./assets/musica/papel.mp3" type="audio/mpeg">
+    Tu navegador no soporta el elemento de audio.
+  </audio>
+  
+  <script>
+    // Intentamos reproducir automáticamente al cargar
+    window.addEventListener("DOMContentLoaded", () => {
+      const audio = document.getElementById("audio");
+      audio.volume = 0.5; // volumen suave
+      const playPromise = audio.play();
+  
+      if (playPromise !== undefined) {
+        playPromise.catch(error => {
+          // Si el navegador bloquea, intentamos reproducir al primer clic
+          window.addEventListener('click', () => {
+            audio.play();
+          }, { once: true });
+        });
+      }
+    });
+  </script>
+<body>
+
+  <div class="contenedor-portada">
+    <h1>MI AMOR 💖</h1>
+
+    <div class="sobre" onclick="abrirCarta()">
+      <div class="tapa"></div>
+      <div class="carta"></div>
+    </div>
+  </div>
+
+  <script src="js/animaciones.js"></script>
+</body>
+</html>
