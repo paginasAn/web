@@ -1,0 +1,95 @@
+/* Fuente general y colores */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Playfair Display', serif;
+    background: linear-gradient(to bottom, #cce6ff, #ffe6e6);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: #333;
+  }
+  
+  h1 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 4em;
+    color: #e63946;
+    margin-bottom: 40px;
+    text-align: center;
+  }
+  
+  /* Contenedor del sobre */
+  .sobre {
+    width: 180px;
+    height: 120px;
+    position: relative;
+    cursor: pointer;
+    perspective: 1000px;
+  }
+  
+  /* Tapa del sobre (triángulo con corazón) */
+  .tapa {
+    position: absolute;
+    width: 180px;
+    height: 90px;
+    background: #e63946;
+    top: 0;
+    left: 0;
+    clip-path: polygon(0 0, 50% 60%, 100% 0, 100% 100%, 0 100%);
+    z-index: 2;
+    transition: transform 0.8s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .tapa::after {
+    content: "❤";
+    font-size: 1.8em;
+    color: white;
+  }
+  
+  /* Cuerpo de la carta */
+  .carta {
+    position: absolute;
+    width: 180px;
+    height: 120px;
+    background: #fff;
+    top: 0;
+    left: 0;
+    border: 2px solid #e63946;
+    border-radius: 10px;
+    z-index: 1;
+    transition: transform 0.8s ease;
+  }
+  
+  /* Animación al abrir */
+  .sobre.abierto .tapa {
+    transform: rotateX(-180deg);
+    transform-origin: top;
+  }
+  
+  /* Responsive */
+  @media (max-width: 600px) {
+    h1 {
+      font-size: 2.5em;
+    }
+  
+    .sobre {
+      width: 140px;
+      height: 90px;
+    }
+  
+    .tapa, .carta {
+      width: 140px;
+      height: 90px;
+    }
+  
+    .tapa::after {
+      font-size: 1.5em;
+    }
+  }
+
+  

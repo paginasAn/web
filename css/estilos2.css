@@ -1,0 +1,82 @@
+/* Fondo romántico */
+.carta-fondo {
+    background: linear-gradient(145deg, #fce4ec, #e3f2fd);
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+  }
+  
+  /* Contenedor con animación */
+  .carta-contenedor {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+    max-width: 800px;
+    padding: 20px;
+  }
+  
+  /* Carta tipo papel */
+  .carta-papel {
+    background: #fffaf0;
+    padding: 40px 30px;
+    max-width: 700px;
+    width: 100%;
+    border: 2px solid #eec9d2;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    font-size: 1.1em;
+    line-height: 1.7em;
+    max-height: 85vh;
+    overflow-y: auto;
+  }
+  
+  /* Estilo del texto */
+  .texto-carta {
+    font-family: 'Playfair Display', serif;
+    color: #333;
+    text-align: justify;
+    white-space: pre-line;
+  }
+  
+  /* Botones de navegación */
+  .botones {
+    margin-top: 20px;
+    display: flex;
+    gap: 15px;
+  }
+  
+  .btn-romantico {
+    background-color: #ffb6c1;
+    color: white;
+    padding: 12px 20px;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: bold;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease, background-color 0.3s ease;
+  }
+  
+  .btn-romantico:hover {
+    transform: scale(1.05);
+    background-color: #f06292;
+  }
+  
+  /* Animación de entrada */
+  .animacion-carta {
+    animation: aparecer 1.3s ease forwards;
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  
+  @keyframes aparecer {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
